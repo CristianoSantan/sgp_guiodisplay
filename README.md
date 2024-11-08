@@ -12,8 +12,8 @@ Este projeto é um sistema de gestão de produção desenvolvido para a empresa 
 
 ## Requisitos
 
-- **Ruby:** >= 3.0
-- **Rails:** >= 7.0
+- **Ruby:** >= 3.1.8
+- **Rails:** >= 7.2.2
 - **Banco de Dados:** PostgreSQL (ou SQLite para desenvolvimento)
 - **Node.js** e **Yarn** para gerenciamento de dependências de frontend
 - **Docker** (opcional) para contêineres
@@ -66,3 +66,30 @@ Os testes cobrem as principais funcionalidades do sistema, incluindo o fluxo de 
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+<details>
+   <summary>Documentação da construção</summary>
+   <pre><code>
+      
+      rails new sgp_guiodisplay --minimal
+
+      rails g scaffold Enterprise name:string email:string phone:string address:string
+
+      rails g scaffold Customer name:string email:string phone:string address:string Enterprise:references
+
+      rails g scaffold Order date:date status:integer customer:references Enterprise:references
+      # enum status: { 'waiting', 'in_production', 'canceled', 'ready', 'delivered' }
+
+      rails g scaffold Inventory sheet_type:string quantity:integer width:string length:string depth:string color:string location:string enterprise:references
+
+      rails g scaffold Machine name:string machine_type:string status:integer enterprise:references
+      # enum status: { 'available', 'under_maintenance' }
+
+      rails g scaffold ProductionOrder start_date:date end_date:date status:integer order:references machine:references
+      # enum status: { 'in_progress', 'completed', 'paused' }
+
+      rails g scaffold OrderItem order:references inventory:references quantity:integer
+
+   </code></pre>
+   
+</details>

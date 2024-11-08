@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-11-08
+  status: 1
+  customer: one
+  Enterprise: one
+
+two:
+  date: 2024-11-08
+  status: 1
+  customer: two
+  Enterprise: two

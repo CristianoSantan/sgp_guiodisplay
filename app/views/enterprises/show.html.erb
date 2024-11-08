@@ -1,0 +1,28 @@
+<% content_for :navigation do %>
+  <li class="nav-item">
+    <%= link_to 'Clientes', customers_path,  class: "btn btn-outline-light ml-4" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Pedidos', orders_path,  class: "btn btn-outline-light ml-4" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Estoque', inventories_path,  class: "btn btn-outline-light ml-4" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Maquinas', machines_path,  class: "btn btn-outline-light ml-4" %>
+  </li>
+    <li class="nav-item">
+    <%= link_to 'Ordem de Produção', production_orders_path,  class: "btn btn-outline-light ml-4" %>
+  </li>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @enterprise %>
+
+<div>
+  <%= link_to "Edit this enterprise", edit_enterprise_path(@enterprise) %> |
+  <%= link_to "Back to enterprises", enterprises_path %>
+
+  <%= button_to "Destroy this enterprise", @enterprise, method: :delete %>
+</div>

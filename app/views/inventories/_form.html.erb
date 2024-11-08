@@ -1,0 +1,57 @@
+<%= form_with(model: inventory) do |form| %>
+  <% if inventory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+        <% inventory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :sheet_type, style: "display: block" %>
+    <%= form.text_field :sheet_type %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :width, style: "display: block" %>
+    <%= form.text_field :width %>
+  </div>
+
+  <div>
+    <%= form.label :length, style: "display: block" %>
+    <%= form.text_field :length %>
+  </div>
+
+  <div>
+    <%= form.label :depth, style: "display: block" %>
+    <%= form.text_field :depth %>
+  </div>
+
+  <div>
+    <%= form.label :color, style: "display: block" %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :enterprise_id, style: "display: block" %>
+    <%= form.text_field :enterprise_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
